@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wordSpeed/FirstViewController.swift"
-            timestampString = "514582328.671487"
+            timestampString = "514582671.231027"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "fetchData()"
             landmarkType = "7">
          </BreakpointContent>
