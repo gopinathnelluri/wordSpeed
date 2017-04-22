@@ -15,6 +15,10 @@
 		967F7A381EA84191006570C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 967F7A371EA84191006570C2 /* Assets.xcassets */; };
 		967F7A3B1EA84191006570C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967F7A391EA84191006570C2 /* LaunchScreen.storyboard */; };
 		967F7A431EA8449E006570C2 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967F7A421EA8449E006570C2 /* ThirdViewController.swift */; };
+		96B72B8A1EA9D249004A5BD5 /* text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 96B72B891EA9D249004A5BD5 /* text.txt */; };
+		96B72B8C1EAA86E1004A5BD5 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B72B8B1EAA86E1004A5BD5 /* Validation.swift */; };
+		96B72B8E1EAAB734004A5BD5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B72B8D1EAAB734004A5BD5 /* User.swift */; };
+		96B72B901EAAB923004A5BD5 /* UsersDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B72B8F1EAAB923004A5BD5 /* UsersDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		967F7A3A1EA84191006570C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		967F7A3C1EA84191006570C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		967F7A421EA8449E006570C2 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		96B72B891EA9D249004A5BD5 /* text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text.txt; sourceTree = "<group>"; };
+		96B72B8B1EAA86E1004A5BD5 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		96B72B8D1EAAB734004A5BD5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		96B72B8F1EAAB923004A5BD5 /* UsersDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,7 @@
 		967F7A2D1EA84190006570C2 /* wordSpeed */ = {
 			isa = PBXGroup;
 			children = (
+				96B72B891EA9D249004A5BD5 /* text.txt */,
 				967F7A2E1EA84190006570C2 /* AppDelegate.swift */,
 				967F7A301EA84190006570C2 /* FirstViewController.swift */,
 				967F7A321EA84190006570C2 /* SecondViewController.swift */,
@@ -69,6 +78,9 @@
 				967F7A3C1EA84191006570C2 /* Info.plist */,
 				967F7A421EA8449E006570C2 /* ThirdViewController.swift */,
 				75054C5C1EA9372B00CB011B /* InitialViewController.swift */,
+				96B72B8B1EAA86E1004A5BD5 /* Validation.swift */,
+				96B72B8D1EAAB734004A5BD5 /* User.swift */,
+				96B72B8F1EAAB923004A5BD5 /* UsersDB.swift */,
 			);
 			path = wordSpeed;
 			sourceTree = "<group>";
@@ -100,7 +112,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Gopinath Nelluri";
 				TargetAttributes = {
 					967F7A2A1EA84190006570C2 = {
@@ -136,6 +148,7 @@
 				967F7A3B1EA84191006570C2 /* LaunchScreen.storyboard in Resources */,
 				967F7A381EA84191006570C2 /* Assets.xcassets in Resources */,
 				967F7A361EA84191006570C2 /* Main.storyboard in Resources */,
+				96B72B8A1EA9D249004A5BD5 /* text.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,11 +159,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96B72B901EAAB923004A5BD5 /* UsersDB.swift in Sources */,
 				75054C5D1EA9372B00CB011B /* InitialViewController.swift in Sources */,
 				967F7A331EA84190006570C2 /* SecondViewController.swift in Sources */,
 				967F7A2F1EA84190006570C2 /* AppDelegate.swift in Sources */,
 				967F7A431EA8449E006570C2 /* ThirdViewController.swift in Sources */,
+				96B72B8C1EAA86E1004A5BD5 /* Validation.swift in Sources */,
 				967F7A311EA84190006570C2 /* FirstViewController.swift in Sources */,
+				96B72B8E1EAAB734004A5BD5 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +210,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -244,6 +261,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

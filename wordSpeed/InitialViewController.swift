@@ -8,14 +8,34 @@
 
 import UIKit
 
-class InitialViewController: UIViewController {
+class InitialViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var userName: UITextField!
+    
+    
+    
+    let defaults = UserDefaults.standard
+    
+
+    var users:UsersDB!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //defaults.synchronize()
+        self.userName.delegate = self
+
+        if defaults.string(forKey: "currentUser") != nil && defaults.string(forKey: "currentUser")! != ""{
+            
+            userName.text = defaults.string(forKey: "currentUser")
+            defaults.synchronize()
+            
+            performSegue(withIdentifier: "userProfile", sender: self)
+        } else{
+            unarchiveUser()
+        }
+        
+        defaults.setValue(userName.text!, forKey: "currentUser")
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,23 +44,96 @@ class InitialViewController: UIViewController {
     }
     
     
-    var currentUser = "gopinath"
     
-    let defaults = UserDefaults.standard
-    defaults.setValue(currentUser,forkey : "currentUser")
+   
     
-    
-    
-    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "userProfile" {
+            if let currentUser = userName.text {
+                print(currentUser)
+                if currentUser == "" {
+                    return false
+                } else {
+                    
+                    defaults.synchronize()
+                    archiveUser()
+                    userProfile()
 
-    /*
-    // MARK: - Navigation
+                    
+                    return true
+                }
+            } else {
+                
+                return false
+            }
+        } else {
+            return false
+        }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
 
+    func archiveUser(_ notification: Notification) {
+        let path = NSHomeDirectory() + "Documents/currentUserNotification.archive"
+        NSKeyedArchiver.archiveRootObject(userName.text!,
+                                          toFile: path)
+    }
+    
+    func archiveUser() {
+        let path = NSHomeDirectory() + "/Documents/currentUser.archive"
+        
+        print(path)
+        NSKeyedArchiver.archiveRootObject(userName.text!, toFile: path)
+        defaults.setValue(userName.text!, forKey: "currentUser")
+        defaults.synchronize()
+    }
+    
+    func unarchiveUser() {
+        let path = NSHomeDirectory() + "/Documents/currentUser.archive"
+        let manager = FileManager.default
+        if manager.fileExists(atPath: path) {
+            let user = NSKeyedUnarchiver.unarchiveObject(withFile: path)
+                as! String
+            if user != "" {
+                userName.text! = user
+                
+            }
+        }
+    }
+    
+    func userProfile(){
+        
+        users = UsersDB()
+        users.unarchive()
+        if users.indexOfUser(userName.text!) == -1{
+            print("help me")
+            users.addUser(userName.text!)
+            users.archive()
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.userName {
+            textField.resignFirstResponder()
+            
+        }
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        userName.resignFirstResponder()
+        self.view.endEditing(true)
+        
+    }
+    
+    
+    @IBAction func switchUser(segue: UIStoryboardSegue) {
+        if segue.identifier == "SwitchUserUnwindSegue" {
+            
+            
+        } else {
+            
+        }
+    }
+    
 }
