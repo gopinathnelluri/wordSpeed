@@ -12,7 +12,9 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var userName: UITextField!
     
+    var initialView = true
     
+    @IBOutlet weak var proceed: UIButton!
     
     let defaults = UserDefaults.standard
     
@@ -30,10 +32,20 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
             userName.text = defaults.string(forKey: "currentUser")
             defaults.synchronize()
             
-            performSegue(withIdentifier: "userProfile", sender: self)
+            
+            if initialView {
+                initialView = false
+                print("------WELCOME BACK------")
+                DispatchQueue.main.async(){
+                    self.performSegue(withIdentifier: "userProfile", sender: self.proceed)
+                }
+            }
+            
+            
         } else{
             unarchiveUser()
         }
+        
         
         defaults.setValue(userName.text!, forKey: "currentUser")
     }
@@ -82,7 +94,6 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
     func archiveUser() {
         let path = NSHomeDirectory() + "/Documents/currentUser.archive"
         
-        print(path)
         NSKeyedArchiver.archiveRootObject(userName.text!, toFile: path)
         defaults.setValue(userName.text!, forKey: "currentUser")
         defaults.synchronize()
@@ -96,7 +107,12 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
                 as! String
             if user != "" {
                 userName.text! = user
-                
+                if initialView {
+                    initialView = false
+                    DispatchQueue.main.async(){
+                        self.performSegue(withIdentifier: "userProfile", sender: self.proceed)
+                    }
+                }
             }
         }
     }
@@ -106,7 +122,7 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
         users = UsersDB()
         users.unarchive()
         if users.indexOfUser(userName.text!) == -1{
-            print("help me")
+            
             users.addUser(userName.text!)
             users.archive()
         }

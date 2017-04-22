@@ -118,13 +118,10 @@ class SecondViewController: UIViewController, UITableViewDelegate,UITableViewDat
         users.unarchive()
         if users.indexOfUser(currentUser) == -1{
             users.addUser(currentUser)
-            print("no user")
+            print("------NO USER------")
         }
         
-        print("start test in 2")
-        print(users.users[0].recent1)
-        print(users.users[0].recent2)
-        print(users.users[0].recent3)
+        
         
         user = users.userInUsers(currentUser)
         users.users.sort(by: {$0.top > $1.top})

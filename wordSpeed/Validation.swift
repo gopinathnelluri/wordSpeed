@@ -27,12 +27,12 @@ class Validation{
             var data = b.trimmingCharacters(in: set as CharacterSet).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             
             if data == "" || Double(data)! < 0 {
-                data = "1"
+                data = ""
             }
             
             return data
         } else {
-            return "1"
+            return ""
         }
         
     }

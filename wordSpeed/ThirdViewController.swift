@@ -25,6 +25,7 @@ class ThirdViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func speedEnd(_ sender: UITextField) {
         sender.text! = vd.numValidate(sender.text!)
+        sender.text! = vd.setData(sender.text!)
         user.defaultWPM = Int(sender.text!)!
     }
     @IBAction func speedChange(_ sender: UITextField) {
@@ -33,6 +34,7 @@ class ThirdViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func delayEnd(_ sender: UITextField) {
         sender.text! = vd.numValidate(sender.text!)
+        sender.text! = vd.setData(sender.text!)
         user.delay = Int(sender.text!)!
     }
     
@@ -89,8 +91,7 @@ class ThirdViewController: UIViewController, UITextFieldDelegate {
     
     func archiveUser() {
         let path = NSHomeDirectory() + "/Documents/currentUser.archive"
-        
-        print(path)
+
         NSKeyedArchiver.archiveRootObject(userName.text!, toFile: path)
         defaults.setValue(userName.text!, forKey: "currentUser")
         defaults.synchronize()
@@ -116,7 +117,7 @@ class ThirdViewController: UIViewController, UITextFieldDelegate {
         users.unarchive()
         if users.indexOfUser(userName.text!) == -1{
             users.addUser(userName.text!)
-            print("no user")
+            print("------NO USER------")
         }
         
         

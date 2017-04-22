@@ -55,6 +55,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func wpmChanged(_ sender: UITextField) {
         sender.text! = vd.numValidate(sender.text!)
+        sender.text! = vd.setData(sender.text!)
         WPM = Int(sender.text!)!
 
         button.setImage(UIImage(named: "Play-25"), for: .normal)
@@ -103,15 +104,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        //users.updateUser(user)
-        //archive()
-        print("dis test in 1")
         users.updateUser(user)
-        
-        print(users.users[0].recent1)
-        print(users.users[0].recent2)
-        print(users.users[0].recent3)
-        //archive()
         users.archive()
     }
     
@@ -147,13 +140,10 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         users.unarchive()
         if users.indexOfUser(userName.text!) == -1{
             users.addUser(userName.text!)
-            print("no user")
+            print("------NO USER------")
         }
         
-        print("start test")
-        print(users.users[0].recent1)
-        print(users.users[0].recent2)
-        print(users.users[0].recent3)
+        
         
         user = users.userInUsers(userName.text!)
         WPM = user.defaultWPM

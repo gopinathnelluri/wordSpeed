@@ -44,10 +44,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaP-Rh-yJT">
-                                        <rect key="frame" x="0.0" y="120.5" width="375" height="118.5"/>
+                                        <rect key="frame" x="0.0" y="120.5" width="375" height="119.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2a6-9H-scd">
-                                                <rect key="frame" x="37.5" y="34" width="300" height="50"/>
+                                                <rect key="frame" x="37.5" y="34.5" width="300" height="50"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="F1t-xy-toY">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
@@ -88,9 +88,9 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQP-sW-NdA">
-                                        <rect key="frame" x="0.0" y="239" width="375" height="239"/>
+                                        <rect key="frame" x="0.0" y="240" width="375" height="239"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnR-YR-WQf">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnR-YR-WQf">
                                                 <rect key="frame" x="0.0" y="0.5" width="375" height="239"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
@@ -287,16 +287,23 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8w3-VG-RI2">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="120.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kn4-ig-X6x">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kn4-ig-X6x">
                                                         <rect key="frame" x="0.0" y="0.5" width="375" height="120.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09r-3q-jH5">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="120.5"/>
+                                                    </view>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="09r-3q-jH5" firstAttribute="centerY" secondItem="8w3-VG-RI2" secondAttribute="centerY" id="2gz-A8-ODf"/>
                                                     <constraint firstItem="Kn4-ig-X6x" firstAttribute="height" secondItem="8w3-VG-RI2" secondAttribute="height" id="3Km-Ys-aGt"/>
+                                                    <constraint firstItem="09r-3q-jH5" firstAttribute="height" secondItem="Kn4-ig-X6x" secondAttribute="height" id="BVl-Sz-txs"/>
+                                                    <constraint firstItem="09r-3q-jH5" firstAttribute="width" secondItem="Kn4-ig-X6x" secondAttribute="width" id="EO4-W8-Dta"/>
                                                     <constraint firstItem="Kn4-ig-X6x" firstAttribute="centerX" secondItem="8w3-VG-RI2" secondAttribute="centerX" id="Jcc-Lb-mQx"/>
+                                                    <constraint firstItem="09r-3q-jH5" firstAttribute="centerX" secondItem="8w3-VG-RI2" secondAttribute="centerX" id="MOB-L5-njk"/>
                                                     <constraint firstItem="Kn4-ig-X6x" firstAttribute="width" secondItem="8w3-VG-RI2" secondAttribute="width" id="NT8-7Q-FCI"/>
                                                     <constraint firstItem="Kn4-ig-X6x" firstAttribute="centerY" secondItem="8w3-VG-RI2" secondAttribute="centerY" id="Unl-X1-j4n"/>
                                                 </constraints>
@@ -529,6 +536,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="proceed" destination="Jmk-uv-ojZ" id="i2Z-YQ-y6K"/>
                         <outlet property="userName" destination="4sG-RB-mf7" id="qnI-zR-fPL"/>
                     </connections>
                 </viewController>
